@@ -1,0 +1,29 @@
+{
+  "name": "linq-to-typings",
+  "version": "1.0.0",
+  "description": " A library that allows you to work with Linq in the same way that is used in C #",
+  "main": "dist/linq-to-typings.js",
+  "typescript": {
+    "definition": "dist/linq-to-typings.d.ts"
+  },
+  "scripts": {
+    "pretest": "tsc",
+    "test": "mocha"
+  },
+  "keywords": [
+    "linq",
+    "typescript"
+  ],
+  "author": "Nicolas Takashi",
+  "license": "MIT",
+  "typings": "src/linq-to-typings.ts",
+  "dependencies": {
+    "typescript": "^2.0.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "rimraf": "^2.5.4",
+    "tslint": "^3.15.1"
+  }
+}
