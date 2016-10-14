@@ -3,4 +3,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/nicolastakashi/linq-to-type/badge.svg?branch=master)](https://coveralls.io/github/nicolastakashi/linq-to-type?branch=master)
 
 
-Is a beautiful library inspired by the Linq .NET, which allows the manipulation of data collections using the famous "Lambda Expressions" we have in C#
+A library written entirely in typescript inspired Linq that exists in .NET.
+
+Linq to type allows for the manipulation of data collections in the same way we do in C # using lambda expressions.
