@@ -8,13 +8,18 @@
   },
   "scripts": {
     "pretest": "tsc",
-    "test": "mocha",
+    "test": "nyc mocha",
+    "coverage": "nyc report --reporter=html",
     "postinstall": "typings install"
   },
   "keywords": [
     "linq",
     "typescript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nicolastakashi/linq-to-type.git"
+  },
   "author": "Nicolas Takashi",
   "license": "MIT",
   "typings": "src/linq-to-type.ts",
@@ -24,6 +29,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.1.2",
+    "nyc": "^8.3.1",
     "rimraf": "^2.5.4",
     "tslint": "^3.15.1",
     "typings": "^1.4.0"
