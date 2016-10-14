@@ -7,7 +7,7 @@ Array.prototype.where = function (expression) {
 }
 
 Array.prototype.any = function (expression) {
-    return this.some(expression)
+    return expression ? this.some(expression) : this.length > 0;
 }
 
 Array.prototype.all = function (expression) {
