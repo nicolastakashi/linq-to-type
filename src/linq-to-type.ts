@@ -7,7 +7,7 @@ Array.prototype.where = function (expression) {
 }
 
 Array.prototype.any = function (expression) {
-    return expression ? this.some(expression) : this.length > 0;
+    return expression ? this.some(expression) : this.length > 0
 }
 
 Array.prototype.all = function (expression) {
@@ -27,7 +27,7 @@ Array.prototype.contains = function (object) {
 }
 
 Array.prototype.except = function (source) {
-    return this.where(item => source.contains(item))
+    return this.where(item => !source.contains(item))
 }
 
 Array.prototype.aggregate = function (accumulator, value) {
@@ -39,13 +39,58 @@ Array.prototype.select = function (expression) {
 }
 
 Array.prototype.sum = function (expression) {
-    return expression ? this.select(expression).sum() : this.aggregate((accumulator, value) => accumulator += (+value), 0);
+    return expression ? this.select(expression).sum() : this.aggregate((accumulator, value) => accumulator += (+value), 0)
 }
 
 Array.prototype.count = function (expression) {
-    return expression ? this.where(expression).count() : this.length;
+    return expression ? this.where(expression).count() : this.length
 }
 
 Array.prototype.average = function (expression) {
     return this.sum(expression) / this.count(expression)
 }
+
+Array.prototype.groupBy = function (group, expression) {
+    return this.aggregate((accumulator, value) => ((accumulator)[group(value)]
+        ? (accumulator)[group(value)].push(expression(value))
+        : (accumulator)[group(value)] = [expression(value)], accumulator), {})
+}
+
+Array.prototype.last = function (expression) {
+    return expression ? this.where(expression).last() : this[this.count() - 1]
+}
+
+Array.prototype.max = function () {
+    return this.aggregate((workingItem, nextItem) => workingItem > nextItem ? workingItem : nextItem)
+}
+
+Array.prototype.min = function () {
+    return this.aggregate((workingItem, nextItem) => workingItem < nextItem ? workingItem : nextItem)
+}
+
+Array.prototype.removeAt = function (index) {
+    this.splice(index, 1)
+}
+
+Array.prototype.remove = function (item) {
+    const itemIndex = this.indexOf(item)
+    return itemIndex >= 0 ? (this.removeAt(itemIndex), true) : false
+}
+
+Array.prototype.removeAll = function (expression) {
+    return this.where(function (): any {
+        return !expression.apply(this, arguments);
+    })
+}
+
+Array.prototype.single = function (expression) {
+    if (this.count(expression) !== 1)
+        throw new TypeError("The collection has more than one element")
+
+    return this.first(expression)
+}
+
+Array.prototype.singleOrDefault = function (expression) {
+    return this.count(expression) ? this.single(expression) : undefined
+}
+

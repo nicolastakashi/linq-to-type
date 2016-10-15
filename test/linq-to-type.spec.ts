@@ -111,10 +111,10 @@ describe('Given an array', () => {
 
     describe('and it is requested items that existing in the two lists', () => {
         it('should return the items that are on both list   s', () => {
-            let arrayOne = [1, 2, 3, 4, 5]
-            let arrayTwo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            let arrayOne = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            let arrayTwo = [1, 2, 3, 4, 5]
             let result = arrayOne.except(arrayTwo)
-            expect(result.toString()).to.be.eq('1,2,3,4,5')
+            expect(result.toString()).to.be.eq('6,7,8,9,10')
         })
     })
 
@@ -157,5 +157,103 @@ describe('Given an array', () => {
             let result = items.average(x => x)
             expect(result).to.be.eq(4.5)
         })
-    });
+
+        it('should return the average of items of the collection without an expression', () => {
+            let result = items.average()
+            expect(result).to.be.eq(4.5)
+        })
+    })
+
+
+    describe('and you want to group the items in the collection', () => {
+        it('should return the grouped items', () => {
+            let items = [1, 1, 2, 2, 3, 3, 4, 4]
+            let result = { '1': [1, 1], '2': [2, 2], '3': [3, 3], '4': [4, 4] }
+            let groupedItems = items.groupBy(x => x, x => x)
+            expect(groupedItems.toString()).to.be.eq(result.toString())
+        })
+    })
+
+    describe('and requests the last item of the collection', () => {
+        it('should return the last item that meets the expression', () => {
+            let result = items.last(x => x > 7)
+            expect(result).to.be.eq(8)
+        })
+
+        it('should return the last item without an expression', () => {
+            let result = items.last()
+            expect(result).to.be.eq(8)
+        })
+    })
+
+    describe('and requests the largest item in the collection', () => {
+        it('should return the largest item in the collection', () => {
+            let result = items.max()
+            expect(result).to.be.eq(8)
+        })
+    })
+
+    describe('and requests the smallest item from the collection', () => {
+        it('should return the smallest item from the collection', () => {
+            let result = items.min()
+            expect(result).to.be.eq(1)
+        })
+    })
+
+
+
+    describe('and you want to remove a specific item from the collection', () => {
+        it('should return true if you can remove the item', () => {
+            let items = [1, 2, 3, 4, 5, 6, 7, 8]
+            let result = items.remove(1)
+            expect(result).to.be.true
+        })
+    })
+
+    describe('and you want to remove an item from a specific index of the collection', () => {
+        let items = [1, 2, 3, 4, 5, 6, 7, 8]
+        items.removeAt(0)
+        let result = [2, 3, 4, 5, 6, 7, 8]
+        expect(items.toString()).to.be.eq(result.toString())
+    })
+
+    describe('and want to remove all items from the collection', () => {
+        it('should remove all itens from collection that matching the expression', () => {
+            let items = [1, 2, 3, 4, 5, 6, 7, 8]
+            let result = items.removeAll(x => x > 1)
+            expect(result.toString()).to.be.eq("1")
+        })
+    })
+
+    describe('and calls on the only item in the collection', () => {
+        it('should return the single list item', () => {
+            let result = items.single(x => x == 1)
+            expect(result).to.be.eq(1)
+        })
+
+        it('should throw an exception if more than one item in the collection', () => {
+            expect(() => items.single(x => x > 1)).to.throws(TypeError, 'The collection has more than one element')
+        })
+    })
+
+
+
+    describe('and calls on the only item in the collection or the default value', () => {
+        it('should return the single list item', () => {
+            let items = [1, 2, 3, 4, 5, 6, 7, 8]
+            let result = items.singleOrDefault(x => x == 1)
+            expect(result).to.be.eq(1)
+        })
+
+        it('should throw an exception if more than one item in the collection', () => {
+            let items = [1, 2, 3, 4, 5, 6, 7, 8]
+            expect(() => items.singleOrDefault(x => x > 1)).to.throws(TypeError, 'The collection has more than one element')
+        })
+
+        it('should return undefined if collection is empty', () => {
+            let items = []
+            expect(items.singleOrDefault(x => x > 1)).to.be.undefined
+        })
+    })
+
 })
