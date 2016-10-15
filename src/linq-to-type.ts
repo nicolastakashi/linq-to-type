@@ -1,5 +1,5 @@
 Array.prototype.first = function (expression) {
-    return expression ? this.filter(expression)[0] : this[0] 
+    return expression ? this.filter(expression)[0] : this[0]
 }
 
 Array.prototype.where = function (expression) {
