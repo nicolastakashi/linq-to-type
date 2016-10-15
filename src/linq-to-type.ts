@@ -1,5 +1,5 @@
 Array.prototype.first = function (expression) {
-    return expression ? this.filter(expression)[0] : this[0]
+    return expression ? this.filter(expression).first() : this[0]
 }
 
 Array.prototype.where = function (expression) {
@@ -32,4 +32,20 @@ Array.prototype.except = function (source) {
 
 Array.prototype.aggregate = function (accumulator, value) {
     return this.reduce(accumulator, value)
+}
+
+Array.prototype.select = function (expression) {
+    return this.map(expression)
+}
+
+Array.prototype.sum = function (expression) {
+    return expression ? this.select(expression).sum() : this.aggregate((accumulator, value) => accumulator += (+value), 0);
+}
+
+Array.prototype.count = function (expression) {
+    return expression ? this.where(expression).count() : this.length;
+}
+
+Array.prototype.average = function (expression) {
+    return this.sum(expression) / this.count(expression)
 }

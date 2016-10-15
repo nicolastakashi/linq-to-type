@@ -86,16 +86,16 @@ describe('Given an array', () => {
 
         it('should return false if there is an item in the collection that meets the expression', () => {
             let result = items.contains(10)
-            expect(result).to.be.false;
+            expect(result).to.be.false
 
         })
     })
-    
+
     describe('and you want to run a function between the values ​​of this collection', () => {
         it('should return the items separated by dash', () => {
-            const sentence = 'the quick brown fox jumps over the lazy dog';
-            const reversed = 'dog lazy the over jumps fox brown quick the ';
-            const words = sentence.split(' ');
+            const sentence = 'the quick brown fox jumps over the lazy dog'
+            const reversed = 'dog lazy the over jumps fox brown quick the '
+            const words = sentence.split(' ')
             let result = words.aggregate((workingSentence, next) => next + ' ' + workingSentence, '')
             expect(result).to.eq(reversed)
         })
@@ -110,11 +110,52 @@ describe('Given an array', () => {
     })
 
     describe('and it is requested items that existing in the two lists', () => {
-        it('should return the items that are on both lists', () => {
+        it('should return the items that are on both list   s', () => {
             let arrayOne = [1, 2, 3, 4, 5]
             let arrayTwo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
             let result = arrayOne.except(arrayTwo)
             expect(result.toString()).to.be.eq('1,2,3,4,5')
         })
     })
+
+    describe('and select values ​​from the collection based on an expression', () => {
+        it('should return the values ​​that meet the expression', () => {
+            let result = items.select(x => x + x)
+            expect(result.toString()).to.be.eq('2,4,6,8,10,12,14,16')
+        })
+    })
+
+
+    describe('and performs the sum of the items in the collection', () => {
+        it('should return the value of the sum of the items based on an expression', () => {
+            let result = items.sum(x => x)
+            expect(result).to.be.eq(36)
+        })
+
+        it('should return the value of the sum of the items without an expression', () => {
+            let result = items.sum()
+            expect(result).to.be.eq(36)
+        })
+    })
+
+
+    describe('and calls on the amount of items in the collection', () => {
+        it('should return the amount of items that meet the expression', () => {
+            let result = items.count(x => x > 2)
+            expect(result).to.be.eq(6)
+        })
+
+        it('should return the amount of items without reporting an expression', () => {
+            let result = items.count()
+            expect(result).to.be.eq(8)
+        })
+    })
+
+
+    describe('and asks the average values ​​of the collection', () => {
+        it('should return the average of items from the collection based on the expression', () => {
+            let result = items.average(x => x)
+            expect(result).to.be.eq(4.5)
+        })
+    });
 })
