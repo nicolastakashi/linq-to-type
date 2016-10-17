@@ -1,16 +1,14 @@
 {
   "name": "linq-to-type",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": " A library that allows you to work with Linq in the same way that is used in C #",
-  "main": "dist/linq-to-type.js",
-  "typescript": {
-    "definition": "dist/linq-to-type.d.ts"
-  },
+  "main": "src/linq-to-type.js",
+  "types": "src/linq-to-type.d.ts",
   "scripts": {
     "pretest": "tsc",
     "test": "nyc mocha",
     "coverage": "nyc report --reporter=html",
-    "postinstall": "typings install"
+    "postinstall": "typings install && tsc"
   },
   "keywords": [
     "linq",
