@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/nicolastakashi/linq-to-type.git"
   },
-  "author": "Nicolas Takashi",
+  "author": "Nicolas Takashi <nicolas.tcs@hotmail.com> (http://ntakashi.net/)",
   "license": "MIT",
   "typings": "src/linq-to-type.ts",
   "dependencies": {
