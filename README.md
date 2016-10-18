@@ -24,5 +24,5 @@ Add `linq-to-type.js` to your `index.html` file
 ```
 
 # Demo
-![alt text](http://i.giphy.com/6FmQCbBwE0KRO.gif "Linq to type example")
+![alt text](https://s22.postimg.org/qvhio5yap/linq_to_type_readme.png "Linq to type example")
 
