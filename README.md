@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/nicolastakashi/linq-to-type.svg?branch=master)](https://travis-ci.org/nicolastakashi/linq-to-type)
 [![Coverage Status](https://coveralls.io/repos/github/nicolastakashi/linq-to-type/badge.svg?branch=master)](https://coveralls.io/github/nicolastakashi/linq-to-type?branch=master)
 [![TypeScript definitions on DefinitelyTyped](http://definitelytyped.org/badges/standard.svg)](http://definitelytyped.org)
+[![npm version](https://badge.fury.io/js/linq-to-type.svg)](https://badge.fury.io/js/linq-to-type)
 
 A library written entirely in typescript inspired Linq that exists in .NET.
 
