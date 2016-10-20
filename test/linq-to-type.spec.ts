@@ -8,6 +8,11 @@ describe('Given an array', () => {
             let result = items.first()
             expect(result).to.be.eq(1)
         })
+
+        it('should throw an exception with collection is empty',() => {
+            let items = [];
+            expect(() => items.first().to.throws(TypeError, 'The source sequence is empty.'))
+        })
     })
 
     describe('and you are asked the first item of the collection with an expression', () => {

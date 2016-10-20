@@ -1,5 +1,10 @@
 Array.prototype.first = function (expression) {
-    return expression ? this.filter(expression).first() : this[0]
+
+    if (this.any()) {
+        return expression ? this.filter(expression)[0] : this[0];
+    }
+
+    throw new TypeError("The source sequence is empty.")
 }
 
 Array.prototype.where = function (expression) {
