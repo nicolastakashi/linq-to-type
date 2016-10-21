@@ -9,3 +9,5 @@ before_install:
   - 'npm install -g coveralls@2'
 after_success:
   - 'nyc report --reporter=text-lcov | coveralls'
+  - 'npm version patch'
+  - 'npm publish'
