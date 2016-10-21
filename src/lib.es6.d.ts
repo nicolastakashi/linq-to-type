@@ -20,6 +20,7 @@ interface Array<T> {
     sum(expression?: (args: T) => number): number;
     select(expression: (args: T) => any): Array<any>
     first(expression?: (args: T) => boolean): T | TypeError;
+    firstOrDefault(expression?: (args: T) => boolean): T
     where(expression: (args: T) => boolean): Array<T>;
 
 }

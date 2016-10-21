@@ -7,6 +7,14 @@ Array.prototype.first = function (expression) {
     throw new TypeError("The source sequence is empty.")
 }
 
+Array.prototype.firstOrDefault = function (expression) {
+    if (this.any()) {
+        return this.first(expression);
+    }
+
+    return undefined;
+}
+
 Array.prototype.where = function (expression) {
     return this.filter(expression)
 }

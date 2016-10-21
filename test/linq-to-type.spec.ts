@@ -15,6 +15,19 @@ describe('Given an array', () => {
         })
     })
 
+    describe('and you are asked the first or default item in the collection', () => {
+        it('should return the first item', () => {
+            let result = items.firstOrDefault(x => x == 1)
+            expect(result).to.be.eq(1)
+        })
+
+        it('should return undefined if collection is empty', () => {
+            let items = []
+            let result = items.firstOrDefault(x => x > 1);
+            expect(result).to.be.undefined
+        })
+    })
+
     describe('and you are asked the first item of the collection with an expression', () => {
         it('should return the first item in the collection if the expression is met', () => {
             let result = items.first(x => x > 2)
