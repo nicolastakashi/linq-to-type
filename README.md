@@ -23,6 +23,56 @@ Add `linq-to-type.js` to your `index.html` file
 ``` sh
 <script src="./node_modules/linq-to-type/src/linq-to-type.js"></script>
 ```
+# Features
+
+| Feature               | Implemented           | Not Implemented  |
+| ----------------------|:---------------------:|:----------------:|
+|Aggregate              |x                      |                  |	
+|All                    |x                      |                  |	
+|Any                    |x                      |                  |	
+|Average	              |x                      |                  |	
+|Concat		              |                       |x                 |
+|Contains	              |x                      |                  |	
+|Count	                |x                      |                  |	
+|DefaultIfEmpty	        |                       |x                 |
+|Distinct	              |x                      |                  |	
+|ElementAt	            |x                      |                  |	
+|ElementAtOrDefault		  |                       |x                 |
+|Except	                |x                      |                  |	
+|First	                |x                      |                  |	
+|FirstOrDefault	        |x                      |                  |	
+|ForEach		            |                       |x                 |
+|GroupBy		            |x                      |                  |
+|GroupJoin		          |                       |x                 |
+|IndexOf		            |                       |x                 |
+|Intersect		          |                       |x                 |
+|Join		                |                       |x                 |
+|Last	                  |x                      |                  |	
+|LastOrDefault		      |                       |x                 |
+|Max	                  |x                      |                  |	
+|Min	                  |x                      |                  |	
+|OrderBy		            |                       |x                 |
+|OrderByDescending		  |                       |x                 |
+|ThenBy		              |                       |x                 |
+|ThenByDescending		    |                       |x                 |
+|Remove	                |x                      |                  |	
+|RemoveAll	            |x                      |                  |	
+|RemoveAt	              |x                      |                  |	
+|Reverse	              |                       |x                 |
+|Select	                |x                      |                  |	
+|SelectMany		          |                       |x                 |
+|SequenceEqual		      |                       |x                 |
+|Single	                |x                      |                  |	
+|SingleOrDefault	      |x                      |                  |	
+|Skip		                |                       |x                 |
+|SkipWhile		          |                       |x                 |
+|Sum	                  |x                      |                  |	
+|Take		                |                       |x                 |
+|TakeWhile		          |                       |x                 |
+|ToLookup		            |                       |x                 |
+|Union		              |                       |x                 |
+|Where	                |x                      |                  |	
+|Zip		                |                       |x                 |
 
 # Demo
 ![alt text](https://s22.postimg.org/qvhio5yap/linq_to_type_readme.png "Linq to type example")
