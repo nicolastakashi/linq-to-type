@@ -107,3 +107,10 @@ Array.prototype.singleOrDefault = function (expression) {
     return this.count(expression) ? this.single(expression) : undefined
 }
 
+Array.prototype.union = function (second) {
+    return this.concat(second)
+}
+
+Array.prototype.selectMany = function (expression) {
+    return [].concat.apply([], this.map(expression));
+}

@@ -22,5 +22,6 @@ interface Array<T> {
     first(expression?: (args: T) => boolean): T | TypeError;
     firstOrDefault(expression?: (args: T) => boolean): T
     where(expression: (args: T) => boolean): Array<T>;
-
+    union(second: Array<T>): Array<T>;
+    selectMany<TResult>(expression: (args: T) => TResult): Array<TResult>;
 }

@@ -1,15 +1,35 @@
 import { expect } from 'chai'
 require('../src/linq-to-type')
 
+describe('Given two arrays', () => {
+    let items1 = [1, 2]
+    let items2 = [1, 2]
+
+    describe('and you are asked union them', () => {
+        it('should return new collection values from both collections', () => {
+            let result = items1.union([3, 4])
+            expect(result).to.be.deep.equal([1, 2, 3, 4])
+        })
+    })
+});
+
 describe('Given an array', () => {
     let items = [1, 2, 3, 4, 5, 6, 7, 8]
+
+    describe('and you are asked flat the collection that each item contains', () => {
+        it('should return new collection with all values from each object inner collection', () => {
+            let result = [{ values: items }, { values: [9, 0] }].selectMany(x => x.values)
+            expect(result).to.be.deep.equal([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+        })
+    })
+
     describe('and you are asked the first item in the collection without an expression', () => {
         it('should return the first item', () => {
             let result = items.first()
             expect(result).to.be.eq(1)
         })
 
-        it('should throw an exception with collection is empty',() => {
+        it('should throw an exception with collection is empty', () => {
             let items = [];
             expect(() => items.first().to.throws(TypeError, 'The source sequence is empty.'))
         })
