@@ -55,11 +55,6 @@ jspm_packages
 !.vscode/launch.json
 
 
-### Typings ###
-## Ignore downloaded typings
-typings
-
-
 ### Git ###
 *.orig
 
@@ -71,3 +66,5 @@ test/linq-to-type.spec.js.map
 src/linq-to-type.js
 src/linq-to-type.d.ts
 src/linq-to-type.js.map
+
+.DS_Store
