@@ -11,7 +11,8 @@ describe('Given an array', () => {
 
         it('should throw an exception with collection is empty',() => {
             let items = [];
-            expect(() => items.first().to.throws(TypeError, 'The source sequence is empty.'))
+
+            expect(() => items.first()).to.throws(TypeError, 'The source sequence is empty.')
         })
     })
 
