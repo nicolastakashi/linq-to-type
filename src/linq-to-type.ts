@@ -107,3 +107,10 @@ Array.prototype.singleOrDefault = function (expression) {
     return this.count(expression) ? this.single(expression) : undefined
 }
 
+Array.prototype.zip = function (second, resultSelector) {
+    const until = Math.min(second.length, this.length)
+    const result = []
+    for (var i = 0; i < until; i++)
+        result.push(resultSelector(this[i], second[i]))
+    return result
+}

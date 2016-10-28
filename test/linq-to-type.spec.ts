@@ -1,6 +1,18 @@
 import { expect } from 'chai'
 require('../src/linq-to-type')
 
+describe('Given two arrays', () => {
+    let items1 = [1, 2]
+    let items2 = [1, 2]
+
+    describe('and you are asked to join both them in a single one senquentialy', () => {
+        it('should return the first item', () => {
+            let result = items1.zip(items2, (a, b) => a + b)
+            expect(result).to.be.deep.equal([2, 4])
+        })
+    })
+});
+
 describe('Given an array', () => {
     let items = [1, 2, 3, 4, 5, 6, 7, 8]
     describe('and you are asked the first item in the collection without an expression', () => {
@@ -9,7 +21,7 @@ describe('Given an array', () => {
             expect(result).to.be.eq(1)
         })
 
-        it('should throw an exception with collection is empty',() => {
+        it('should throw an exception with collection is empty', () => {
             let items = [];
             expect(() => items.first().to.throws(TypeError, 'The source sequence is empty.'))
         })

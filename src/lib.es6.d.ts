@@ -22,5 +22,5 @@ interface Array<T> {
     first(expression?: (args: T) => boolean): T | TypeError;
     firstOrDefault(expression?: (args: T) => boolean): T
     where(expression: (args: T) => boolean): Array<T>;
-
+    zip<TSecond, TResult>(second: Array<TSecond>, expression: (a: T, b: TSecond) => TResult): Array<TResult>;
 }
