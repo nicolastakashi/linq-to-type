@@ -60,7 +60,7 @@ Add `linq-to-type.js` to your `index.html` file
 |RemoveAt	              |x                      |                  |	
 |Reverse	              |                       |x                 |
 |Select	                |x                      |                  |	
-|SelectMany		          |                       |x                 |
+|SelectMany		          |x                      |                  |
 |SequenceEqual		      |                       |x                 |
 |Single	                |x                      |                  |	
 |SingleOrDefault	      |x                      |                  |	
@@ -70,7 +70,7 @@ Add `linq-to-type.js` to your `index.html` file
 |Take		                |                       |x                 |
 |TakeWhile		          |                       |x                 |
 |ToLookup		            |                       |x                 |
-|Union		              |                       |x                 |
+|Union		              |x                      |                  |
 |Where	                |x                      |                  |	
 |Zip		                |                       |x                 |
 
