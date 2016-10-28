@@ -5,8 +5,8 @@ describe('Given two arrays', () => {
     let items1 = [1, 2]
     let items2 = [1, 2]
 
-    describe('and you are asked to join both them in a single one senquentialy', () => {
-        it('should return the first item', () => {
+    describe('and you are asked to zip them based on an expression in a single one senquentialy', () => {
+        it('should return new collection with values ​​that meet the expression', () => {
             let result = items1.zip(items2, (a, b) => a + b)
             expect(result).to.be.deep.equal([2, 4])
         })
