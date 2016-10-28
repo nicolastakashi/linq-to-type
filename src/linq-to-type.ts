@@ -114,3 +114,11 @@ Array.prototype.union = function (second) {
 Array.prototype.selectMany = function (expression) {
     return [].concat.apply([], this.map(expression));
 }
+
+Array.prototype.zip = function (second, resultSelector) {
+    const until = Math.min(second.length, this.length)
+    const result = []
+    for (var i = 0; i < until; i++)
+        result.push(resultSelector(this[i], second[i]))
+    return result
+}

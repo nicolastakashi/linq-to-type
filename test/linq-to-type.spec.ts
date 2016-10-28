@@ -9,6 +9,13 @@ describe('Given two arrays', () => {
         it('should return new collection values from both collections', () => {
             let result = items1.union([3, 4])
             expect(result).to.be.deep.equal([1, 2, 3, 4])
+		})
+	})
+
+    describe('and you are asked to zip them based on an expression in a single one senquentialy', () => {
+        it('should return new collection with values ​​that meet the expression', () => {
+            let result = items1.zip(items2, (a, b) => a + b)
+            expect(result).to.be.deep.equal([2, 4])
         })
     })
 });
