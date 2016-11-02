@@ -9,8 +9,8 @@ describe('Given two arrays', () => {
         it('should return new collection values from both collections', () => {
             let result = items1.union([3, 4])
             expect(result).to.be.deep.equal([1, 2, 3, 4])
-		})
-	})
+        })
+    })
 
     describe('and you are asked to zip them based on an expression in a single one senquentialy', () => {
         it('should return new collection with values ​​that meet the expression', () => {
@@ -18,7 +18,7 @@ describe('Given two arrays', () => {
             expect(result).to.be.deep.equal([2, 4])
         })
     })
-});
+})
 
 describe('Given an array', () => {
     let items = [1, 2, 3, 4, 5, 6, 7, 8]
@@ -37,7 +37,7 @@ describe('Given an array', () => {
         })
 
         it('should throw an exception with collection is empty', () => {
-            let items = [];
+            let items = []
 
             expect(() => items.first()).to.throws(TypeError, 'The source sequence is empty.')
         })
@@ -51,7 +51,7 @@ describe('Given an array', () => {
 
         it('should return undefined if collection is empty', () => {
             let items = []
-            let result = items.firstOrDefault(x => x > 1);
+            let result = items.firstOrDefault(x => x > 1)
             expect(result).to.be.undefined
         })
     })
@@ -299,6 +299,20 @@ describe('Given an array', () => {
         it('should return undefined if collection is empty', () => {
             let items = []
             expect(items.singleOrDefault(x => x > 1)).to.be.undefined
+        })
+    })
+
+    describe('and calls default value if the collection is empty', () => {
+        it('should return undefined, if the collection is empty and not informe the default value', () => {
+            let items = []
+            let result = items.defaultIfEmpty()
+            expect(result).to.be.undefined
+        })
+
+        it('should return default value informed, if the collection is empty', () => {
+            let items = []
+            let result = items.defaultIfEmpty(0)
+            expect(result).to.be.eq(0)
         })
     })
 

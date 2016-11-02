@@ -122,3 +122,7 @@ Array.prototype.zip = function (second, resultSelector) {
         result.push(resultSelector(this[i], second[i]))
     return result
 }
+
+Array.prototype.defaultIfEmpty = function (defaultValue) {
+    return defaultValue !== undefined ? (this.count() ? this : defaultValue) : (this.count() ? this : undefined)
+}
