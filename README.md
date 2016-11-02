@@ -34,7 +34,7 @@ Add `linq-to-type.js` to your `index.html` file
 |Concat		              |                       |x                 |
 |Contains	              |x                      |                  |	
 |Count	                |x                      |                  |	
-|DefaultIfEmpty	        |                       |x                 |
+|DefaultIfEmpty	        |x                      |                  |
 |Distinct	              |x                      |                  |	
 |ElementAt	            |x                      |                  |	
 |ElementAtOrDefault		  |                       |x                 |
