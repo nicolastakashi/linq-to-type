@@ -8,6 +8,11 @@ A library written entirely in typescript inspired Linq that exists in .NET.
 
 Linq to type allows for the manipulation of data collections in the same way we do in C # using lambda expressions.
 
+Contribute & Develop
+--------------------
+
+We've set up a separate document for our [contribution guidelines](https://github.com/nicolastakashi/linq-to-type/blob/master/CONTRIBUTING.md).
+
 # Installing
 ```sh
 $ npm install linq-to-type
@@ -37,7 +42,7 @@ Add `linq-to-type.js` to your `index.html` file
 |DefaultIfEmpty	        |x                      |                  |
 |Distinct	              |x                      |                  |	
 |ElementAt	            |x                      |                  |	
-|ElementAtOrDefault		  |                       |x                 |
+|ElementAtOrDefault		  |x                      |                  |
 |Except	                |x                      |                  |	
 |First	                |x                      |                  |	
 |FirstOrDefault	        |x                      |                  |	
@@ -74,6 +79,6 @@ Add `linq-to-type.js` to your `index.html` file
 |Where	                |x                      |                  |	
 |Zip		                |x                       |                 |
 
-# Demo
-![alt text](https://s22.postimg.org/qvhio5yap/linq_to_type_readme.png "Linq to type example")
+# Example
+![](http://i.giphy.com/l3vReLmFRdZELIPVm.gif)
 
