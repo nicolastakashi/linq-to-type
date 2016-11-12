@@ -37,7 +37,7 @@ Add `linq-to-type.js` to your `index.html` file
 |DefaultIfEmpty	        |x                      |                  |
 |Distinct	              |x                      |                  |	
 |ElementAt	            |x                      |                  |	
-|ElementAtOrDefault		  |                       |x                 |
+|ElementAtOrDefault		  |x                      |                  |
 |Except	                |x                      |                  |	
 |First	                |x                      |                  |	
 |FirstOrDefault	        |x                      |                  |	
