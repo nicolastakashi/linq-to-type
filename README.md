@@ -74,6 +74,6 @@ Add `linq-to-type.js` to your `index.html` file
 |Where	                |x                      |                  |	
 |Zip		                |x                       |                 |
 
-# Demo
-![alt text](https://s22.postimg.org/qvhio5yap/linq_to_type_readme.png "Linq to type example")
+# Example
+![](http://i.giphy.com/l3vReLmFRdZELIPVm.gif)
 
