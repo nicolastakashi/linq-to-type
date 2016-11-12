@@ -118,6 +118,21 @@ describe('Given an array', () => {
             expect(result).not.be.undefined
         })
 
+        it('should return default element if call elementAtOrDefault', () => {
+            let result = items.elementAtOrDefault(0)
+            expect(result).not.be.undefined
+        })
+
+        it('should return undefined if call elementAtOrDefault and position not exist',() => {
+            let result = items.elementAtOrDefault(10)
+            expect(result).to.be.undefined
+        })
+
+        it('should throws an exception if the collection is empty when call elementAtOrDefault', () => {
+            let items = [];
+            expect(() => items.elementAtOrDefault(0)).to.throws(TypeError, 'The source sequence is empty.')
+        })
+
         it('should return undefined if the position does not exist in the collection', () => {
             let result = items.elementAt(10)
             expect(result).to.be.undefined
