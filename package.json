@@ -1,6 +1,6 @@
 {
   "name": "linq-to-type",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": " A library that allows you to work with Linq in the same way that is used in C #",
   "main": "src/linq-to-type.js",
   "types": "src/linq-to-type.d.ts",
