@@ -4,6 +4,8 @@ Thanks for you to contribute to source code and to make Linq to Type even better
 
   - [Question or Problem?](#question)
   - [Issues and Bugs](#issue)
+  - [Feature Requests](#feature)
+  - [Doc Fix](#docs)
 
 ## <a name="question"></a> Question or Problem?
 If you have questions about how to use Linq to Type, please direct these to the project maintainers
@@ -26,5 +28,11 @@ would like to implement a new feature then consider what kind of change it is:
   into the project.
 * **Small Changes** can be crafted and submitted to the [GitHub Repository][github] as a Pull
   Request.
+  
+## <a name="docs"></a> Want a Doc Fix?
+
+If you want to help improve the docs, it's a good idea to let others know what you're working on to
+minimize duplication of effort. Create a new issue (or comment on a related existing one) to let
+others know what you're working on.
 
 [github]: https://github.com/nicolastakashi/linq-to-type
