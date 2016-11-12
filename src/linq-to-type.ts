@@ -32,7 +32,10 @@ Array.prototype.distinct = function() {
 }
 
 Array.prototype.elementAt = function(index) {
-    return this[index]
+    if (this.any()) {
+        return this[index]
+    }
+    throw new TypeError("The source sequence is empty.")
 }
 
 Array.prototype.elementAtOrDefault = function(index) {

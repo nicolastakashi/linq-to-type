@@ -6,7 +6,7 @@ interface Array<T> {
     contains(object: T): boolean;
     count(expression?: (args: T) => boolean): number
     distinct(): Array<T>;
-    elementAt(index: number): T;
+    elementAt(index: number): T | TypeError;
     elementAtOrDefault(index: number): T | TypeError;
     except(source: Array<T>): Array<T>;
     groupBy(group: (args: T) => any, value: (element: T) => any): any
