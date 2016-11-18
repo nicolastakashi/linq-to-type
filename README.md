@@ -36,7 +36,6 @@ Add `linq-to-type.js` to your `index.html` file
 |All                    |x                      |                  |	
 |Any                    |x                      |                  |	
 |Average	              |x                      |                  |	
-|Concat		              |                       |x                 |
 |Contains	              |x                      |                  |	
 |Count	                |x                      |                  |	
 |DefaultIfEmpty	        |x                      |                  |
@@ -46,10 +45,8 @@ Add `linq-to-type.js` to your `index.html` file
 |Except	                |x                      |                  |	
 |First	                |x                      |                  |	
 |FirstOrDefault	        |x                      |                  |	
-|ForEach		            |                       |x                 |
 |GroupBy		            |x                      |                  |
 |GroupJoin		          |                       |x                 |
-|IndexOf		            |                       |x                 |
 |Intersect		          |                       |x                 |
 |Join		                |                       |x                 |
 |Last	                  |x                      |                  |	
@@ -63,7 +60,6 @@ Add `linq-to-type.js` to your `index.html` file
 |Remove	                |x                      |                  |	
 |RemoveAll	            |x                      |                  |	
 |RemoveAt	              |x                      |                  |	
-|Reverse	              |                       |x                 |
 |Select	                |x                      |                  |	
 |SelectMany		          |x                      |                  |
 |SequenceEqual		      |                       |x                 |
