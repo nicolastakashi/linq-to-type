@@ -50,7 +50,7 @@ Add `linq-to-type.js` to your `index.html` file
 |Intersect		          |x                      |                  |
 |Join		                |                       |x                 |
 |Last	                  |x                      |                  |	
-|LastOrDefault		      |                       |x                 |
+|LastOrDefault		      |x                      |                  |
 |Max	                  |x                      |                  |	
 |Min	                  |x                      |                  |	
 |OrderBy		            |                       |x                 |
