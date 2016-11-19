@@ -441,3 +441,28 @@ describe('DefaultIfEmpty test', () => {
         })
     })
 })
+
+describe('Intersect test', () => {
+    describe('Given two array', () => {
+        describe('and calls Intersect method to get duplicate itens in two collections', () => {
+            it('should give duplicate values in two collections', () => {
+                let items1 = [1, 2, 3, 4]
+                let items2 = [1, 2, 3, 4, 5, 6, 7, 8]
+                let result = items1.intersect(items2) as number[];
+                expect(result.sum()).to.eq(10)
+            })
+
+            it('should throws an exception if the first collection is empty', () => {
+                let items1 = []
+                let items2 = [1, 2, 3, 4]
+                expect(() => items1.intersect(items2)).to.throws(TypeError, 'first or second is null.')
+            })
+
+            it('should throws an exception if the second collection is empty', () => {
+                let items1 = [1, 2, 3, 4]
+                let items2 = []
+                expect(() => items1.intersect(items2)).to.throws(TypeError, 'first or second is null.')
+            })
+        })
+    })
+})

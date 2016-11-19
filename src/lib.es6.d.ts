@@ -26,5 +26,6 @@ interface Array<T> {
     union(second: Array<T>): Array<T>;
     selectMany<TResult>(expression: (args: T) => TResult): Array<TResult>;
     zip<TSecond, TResult>(second: Array<TSecond>, expression: (a: T, b: TSecond) => TResult): Array<TResult>;
-    defaultIfEmpty(defaultValue?: T): Array<T>
+    defaultIfEmpty(defaultValue?: T): Array<T>;
+    intersect(source: Array<T>): Array<T> | TypeError;
 }
