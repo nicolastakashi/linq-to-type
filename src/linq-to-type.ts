@@ -83,6 +83,13 @@ Array.prototype.last = function (expression) {
     return expression ? this.where(expression).last() : this[this.count() - 1]
 }
 
+Array.prototype.lastOrDefault = function (expression) {
+    if (this.any()) {
+        return expression ? this.where(expression).last() : this[this.count() - 1]
+    }
+    throw new TypeError("The source sequence is empty.")
+}
+
 Array.prototype.max = function () {
     return this.aggregate((workingItem, nextItem) => workingItem > nextItem ? workingItem : nextItem)
 }

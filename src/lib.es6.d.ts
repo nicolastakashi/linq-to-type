@@ -11,6 +11,7 @@ interface Array<T> {
     except(source: Array<T>): Array<T>;
     groupBy(group: (args: T) => any, value: (element: T) => any): any
     last(expression?: (args: T) => boolean): T;
+    lastOrDefault(expression?: (args: T) => boolean): T | TypeError;
     max(): T
     min(): T
     remove(value: T): boolean;

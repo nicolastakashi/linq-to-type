@@ -331,6 +331,33 @@ describe('Last test', () => {
     })
 })
 
+describe('LastOrDefault test', () => {
+    describe('Given an array', () => {
+        describe('and requests the last item of the collection', () => {
+            it('should return the last item that meets the expression', () => {
+                let result = items.lastOrDefault(x => x > 7)
+                expect(result).to.be.eq(8)
+            })
+
+            it('should return the last item without an expression', () => {
+                let result = items.lastOrDefault()
+                expect(result).to.be.eq(8)
+            })
+
+
+            it('should throws an exception if the collection is empty', () => {
+                let items = []
+                expect(() => items.lastOrDefault()).to.throws(TypeError, 'The source sequence is empty.')
+            })
+
+            it('sould return default value if not meet the expression', () => {
+                let result = items.lastOrDefault(x => x > 10)
+                expect(result).to.be.eq(undefined)
+            })
+        })
+    })
+})
+
 describe('Max test', () => {
     describe('Given an array', () => {
         describe('and requests the largest item in the collection', () => {
