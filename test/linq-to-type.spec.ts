@@ -493,3 +493,46 @@ describe('Intersect test', () => {
         })
     })
 })
+
+describe('GroupJoin test', () => {
+    describe('Given two objects', () => {
+        describe('and calls GroupJoin', () => {
+            it('should create a list where each element is an anonymous  type that contains a persons name and a collection of names of the pets they own', () => {
+                class Person {
+                    public Name: string;
+
+                    constructor(name: string) {
+                        this.Name = name;
+                    }
+                }
+
+                class Pet {
+                    public Name: string;
+                    public Owner: Person;
+
+                    constructor(name: string, owner: Person) {
+                        this.Name = name;
+                        this.Owner = owner;
+                    }
+                }
+
+                const magnus = new Person('Hedlund, Magnus');
+                const terry = new Person('Adams, Terry');
+                const charlotte = new Person('Weiss, Charlotte');
+
+                const barley = new Pet('Barley', terry);
+                const boots = new Pet('Boots', terry);
+                const whiskers = new Pet('Whiskers', charlotte);
+                const daisy = new Pet('Daisy', magnus);
+
+                const people = new Array<Person>(magnus, terry, charlotte);
+                const pets = new Array<Pet>(barley, boots, whiskers, daisy);
+
+                const query = people.groupJoin(pets, person => person, pet => pet.Owner, (person, petCollection) =>
+                    ({ OwnerName: person.Name, Pets: petCollection.select(pet => pet.Name) }));
+                const result = 'Hedlund, Magnus: Daisy,Adams, Terry: Barley,Boots,Weiss, Charlotte: Whiskers';
+                expect(query.select(obj => `${obj.OwnerName}: ${obj.Pets}`).toString()).to.be.eq(result)
+            })
+        })
+    })
+})

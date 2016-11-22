@@ -150,3 +150,11 @@ Array.prototype.intersect = function (source) {
     }
     throw new TypeError("first or second is null.")
 }
+
+Array.prototype.groupJoin = function (inner, outerKeySelector, innerKeySelector, resultSelector) {
+
+    if (this.any() || inner.any()) {
+        return this.select((x, y) => resultSelector(x, inner.where(a => outerKeySelector(x) === innerKeySelector(a))));
+    }
+    throw new TypeError("outer or inner or outerKeySelector or innerKeySelector or resultSelector is null.")
+}    
