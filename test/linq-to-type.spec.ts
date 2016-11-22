@@ -529,7 +529,7 @@ describe('GroupJoin test', () => {
                 const pets = new Array<Pet>(barley, boots, whiskers, daisy);
 
                 const query = people.groupJoin(pets, person => person, pet => pet.Owner, (person, petCollection) =>
-                    ({ OwnerName: person.Name, Pets: petCollection.select(pet => pet.Name) }));
+                    ({ OwnerName: person.Name, Pets: petCollection.select(pet => pet.Name) })) as Array<any>;
                 const result = 'Hedlund, Magnus: Daisy,Adams, Terry: Barley,Boots,Weiss, Charlotte: Whiskers';
                 expect(query.select(obj => `${obj.OwnerName}: ${obj.Pets}`).toString()).to.be.eq(result)
             })
