@@ -46,7 +46,7 @@ Add `linq-to-type.js` to your `index.html` file
 |First	                |x                      |                  |	
 |FirstOrDefault	        |x                      |                  |	
 |GroupBy		            |x                      |                  |
-|GroupJoin		          |                       |x                 |
+|GroupJoin		          |x                      |                 |
 |Intersect		          |x                      |                  |
 |Join		                |                       |x                 |
 |Last	                  |x                      |                  |	
