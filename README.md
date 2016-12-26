@@ -68,9 +68,9 @@ Add `linq-to-type.js` to your `index.html` file
 |Skip		                |                       |x                 |
 |SkipWhile		          |                       |x                 |
 |Sum	                  |x                      |                  |	
-|Take		                |                       |x                 |
-|TakeWhile		          |                       |x                 |
-|ToLookup		            |                       |x                 |
+|Take		                |x                       |                 |
+|TakeWhile		          |x                       |                 |
+|ToLookup		            |x                       |                 |
 |Union		              |x                      |                  |
 |Where	                |x                      |                  |	
 |Zip		                |x                       |                 |
