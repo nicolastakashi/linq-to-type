@@ -157,4 +157,28 @@ Array.prototype.groupJoin = function (inner, outerKeySelector, innerKeySelector,
         return this.select((x, y) => resultSelector(x, inner.where(a => outerKeySelector(x) === innerKeySelector(a))));
     }
     throw new TypeError("outer or inner or outerKeySelector or innerKeySelector or resultSelector is null.")
-}    
+}
+
+Array.prototype.take = function (count) {
+    if (this.any()) {
+        return this.slice(0, Math.max(0, count));
+    }
+
+    throw new TypeError("source is null")
+}
+
+Array.prototype.takeWhile = function (predicate) {
+    if (this.any() && predicate !== undefined) {
+        return this.take(this.aggregate((x, y) => predicate(this.elementAt(x)) ? ++x : x, 0))
+    }
+
+    throw new TypeError("source or predicate is null")
+}
+
+Array.prototype.toLookup = function (keySelector, elementSelector) {
+    if (this.any() && keySelector !== undefined) {
+        return this.groupBy(keySelector, elementSelector);
+    }
+
+    throw new TypeError("source or keySelector is null");
+}

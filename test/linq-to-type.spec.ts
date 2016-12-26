@@ -546,3 +546,119 @@ describe('GroupJoin test', () => {
         })
     })
 })
+
+describe('Take test', () => {
+    describe('Given an array', () => {
+        describe('and calls Take', () => {
+            it('should return 1 item from array', () => {
+                let result = items.take(1)
+                expect(result.toString()).to.be.eq('1');
+            })
+
+            it('should throws an exception if collection is empty', () => {
+                let items = []
+                expect(() => items.take(1)).to.throws(TypeError, 'source is null')
+            })
+        })
+    })
+})
+
+describe('TakeWhile test', () => {
+    describe('Given an array', () => {
+        describe('and calls TakeWhile', () => {
+            it('should return fruits that is not orange', () => {
+                let fruits = ["apple", "banana", "mango", "orange", "passionfruit", "grape"]
+                let result = fruits.takeWhile(fruit => fruit !== 'orange')
+                expect(result.toString()).to.be.eq('apple,banana,mango')
+            })
+
+            it('should throws an exception if collection is empty', () => {
+                let fruits = []
+                expect(() => fruits.takeWhile(fruit => fruit !== 'orange')).to.throws(TypeError, 'source or predicate is null')
+            })
+
+            it('should throws an exception if predicate is empty', () => {
+                let fruits = ["apple", "banana", "mango", "orange", "passionfruit", "grape"]
+                expect(() => fruits.takeWhile(undefined)).to.throws(TypeError, 'source or predicate is null')
+            })
+
+        })
+    })
+})
+
+describe('TakeWhile test', () => {
+    describe('Given an array', () => {
+        interface IPackage {
+            Company: string;
+            Weight: number;
+            TrackingNumber: number;
+        };
+
+        class Package {
+            public Company: string;
+            public Weight: number;
+            public TrackingNumber: number;
+
+            constructor(p: IPackage) {
+                this.Company = p.Company;
+                this.Weight = p.Weight;
+                this.TrackingNumber = p.TrackingNumber;
+            }
+        }
+
+        const packages = new Array<Package>(
+            new Package({
+                Company: 'Coho Vineyard',
+                TrackingNumber: 89453312, Weight: 25.2
+            }),
+            new Package({
+                Company: 'Lucerne Publishing',
+                TrackingNumber: 89112755, Weight: 18.7
+            }),
+            new Package({
+                Company: 'Wingtip Toys',
+                TrackingNumber: 299456122, Weight: 6.0
+            }),
+            new Package({
+                Company: 'Contoso Pharmaceuticals',
+                TrackingNumber: 670053128, Weight: 9.3
+            }),
+            new Package({
+                Company: 'Wide World Importers',
+                TrackingNumber: 4665518773, Weight: 33.8
+            })
+        );
+
+        const result = {
+            'C': [
+                'Coho Vineyard 89453312',
+                'Contoso Pharmaceuticals 670053128'
+            ],
+            'L': [
+                'Lucerne Publishing 89112755'
+            ],
+            'W': [
+                'Wingtip Toys 299456122',
+                'Wide World Importers 4665518773'
+            ],
+        };
+
+        describe('and calls TakeWhile', () => {
+            it('should return fruits that is not orange', () => {
+                let lookup = packages.toLookup(p => p.Company.substring(0, 1), p => p.Company + ' ' + p.TrackingNumber);
+                expect(JSON.stringify(lookup)).to.be.eq(JSON.stringify(result))
+            })
+
+            it('should throws an exception if collection is empty', () => {
+                let packages = [];
+                expect(() => packages.toLookup(p => p.Company.substring(0, 1), p => p.Company + ' ' + p.TrackingNumber)).to.throws(TypeError, 'source or keySelector is null')
+            })
+
+            it('should throws an exception if predicate is empty', () => {
+                expect(() => packages.toLookup(undefined, undefined)).to.throws(TypeError, 'source or keySelector is null')
+            })
+
+        })
+    })
+})
+

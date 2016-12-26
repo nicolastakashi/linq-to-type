@@ -29,5 +29,8 @@ interface Array<T> {
     zip<TSecond, TResult>(second: Array<TSecond>, expression: (a: T, b: TSecond) => TResult): Array<TResult>;
     defaultIfEmpty(defaultValue?: T): Array<T>;
     intersect(source: Array<T>): Array<T> | TypeError;
-    groupJoin<U>(inner: Array<U>, outerKeySelector: (k: T) => any, innerKeySelector: (k: U) => any, resultSelector: (first: T, second: Array<U>) => any): Array<any> | TypeError
+    groupJoin<U>(inner: Array<U>, outerKeySelector: (k: T) => any, innerKeySelector: (k: U) => any, resultSelector: (first: T, second: Array<U>) => any): Array<any> | TypeError;
+    take(count: number): Array<T> | TypeError;
+    takeWhile(predicate: (value?: T, index?: number, source?: Array<T>) => boolean): Array<T> | TypeError;
+    toLookup(keySelector: (key: T) => any, elementSelector: (element: T) => any): any | TypeError;
 }
