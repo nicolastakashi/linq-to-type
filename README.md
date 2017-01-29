@@ -13,68 +13,38 @@ Contribute & Develop
 
 We've set up a separate document for our [contribution guidelines](https://github.com/nicolastakashi/linq-to-type/blob/master/CONTRIBUTING.md).
 
-# Installing
+# Building
+
+In this section we will see how to do to contribute com o Linq To Type.
+
+## Installing Dependencies
+Before you can build the project, you must install and configure the following dependencies on your machine:
+* [Git]: The [Github Guide] to Installing Git is a good source of information].
+* [Node.js] v6.x (LTS): We use Node to run tests, and generate distributable files. Depending on your system, you can install Node either from source or as a pre-packaged bundle.
+* We recommend using [nvm] (or nvm-windows) to manage and install Node.js, which makes it easy to change the version of Node.js per project.
+* [Typescript] because our project is TypeScript based.
+
+[Git]: <https://git-scm.com/>
+[Github Guide]: <https://help.github.com/articles/set-up-git/>
+[Node.js]: <https://nodejs.org/en/>
+[nvm]: <https://github.com/coreybutler/nvm-windows>
+[TypeScript]: <https://www.typescriptlang.org/>
+
+## Build
+
 ```sh
-$ npm install linq-to-type
+# Clone your Github repository:
+git clone https://github.com/<github username>/linq-to-type.git
+
+# Go to the Linq To Type directory:
+cd linq-to-type
+
+# Add the main Linq To Type repository as an upstream remote to your repository:
+git remote add upstream "https://github.com/nicolastakashi/linq-to-type.git"
+
+# Install node.js dependencies:
+npm install
+
+# Run Linq To Type tests
+npm test
 ```
-
-# Usage
-Add reference tag to your `index.d.ts`  file
-``` sh
-///<reference path="../node_modules/linq-to-type/src/lib.es6.d.ts" />
-```
-
-Add `linq-to-type.js` to your `index.html` file
-``` sh
-<script src="./node_modules/linq-to-type/src/linq-to-type.js"></script>
-```
-# Features
-
-| Feature               | Implemented           | Not Implemented  |
-| ----------------------|:---------------------:|:----------------:|
-|Aggregate              |x                      |                  |	
-|All                    |x                      |                  |	
-|Any                    |x                      |                  |	
-|Average	              |x                      |                  |	
-|Contains	              |x                      |                  |	
-|Count	                |x                      |                  |	
-|DefaultIfEmpty	        |x                      |                  |
-|Distinct	              |x                      |                  |	
-|ElementAt	            |x                      |                  |	
-|ElementAtOrDefault		  |x                      |                  |
-|Except	                |x                      |                  |	
-|First	                |x                      |                  |	
-|FirstOrDefault	        |x                      |                  |	
-|GroupBy		            |x                      |                  |
-|GroupJoin		          |x                      |                 |
-|Intersect		          |x                      |                  |
-|Join		                |                       |x                 |
-|Last	                  |x                      |                  |	
-|LastOrDefault		      |x                      |                  |
-|Max	                  |x                      |                  |	
-|Min	                  |x                      |                  |	
-|OrderBy		            |                       |x                 |
-|OrderByDescending		  |                       |x                 |
-|ThenBy		              |                       |x                 |
-|ThenByDescending		    |                       |x                 |
-|Remove	                |x                      |                  |	
-|RemoveAll	            |x                      |                  |	
-|RemoveAt	              |x                      |                  |	
-|Select	                |x                      |                  |	
-|SelectMany		          |x                      |                  |
-|SequenceEqual		      |                       |x                 |
-|Single	                |x                      |                  |	
-|SingleOrDefault	      |x                      |                  |	
-|Skip		                |                       |x                 |
-|SkipWhile		          |                       |x                 |
-|Sum	                  |x                      |                  |	
-|Take		                |x                       |                 |
-|TakeWhile		          |x                       |                 |
-|ToLookup		            |x                       |                 |
-|Union		              |x                      |                  |
-|Where	                |x                      |                  |	
-|Zip		                |x                       |                 |
-
-# Example
-![](http://i.giphy.com/l3vReLmFRdZELIPVm.gif)
-
