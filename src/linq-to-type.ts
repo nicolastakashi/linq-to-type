@@ -1,5 +1,4 @@
 Array.prototype.first = function (expression) {
-
     if (this.any()) {
         return expression ? this.filter(expression)[0] : this[0]
     }
@@ -12,7 +11,7 @@ Array.prototype.firstOrDefault = function (expression) {
         return this.first(expression)
     }
 
-    return undefined
+    throw new TypeError("The source sequence is empty.")
 }
 
 Array.prototype.where = function (expression) {
@@ -35,6 +34,7 @@ Array.prototype.elementAt = function (index) {
     if (this.any()) {
         return this[index]
     }
+    
     throw new TypeError("The source sequence is empty.")
 }
 
@@ -42,6 +42,7 @@ Array.prototype.elementAtOrDefault = function (index) {
     if (this.any()) {
         return this[index]
     }
+
     throw new TypeError("The source sequence is empty.")
 }
 
@@ -80,13 +81,23 @@ Array.prototype.groupBy = function (group, expression) {
 }
 
 Array.prototype.last = function (expression) {
-    return expression ? this.where(expression).last() : this[this.count() - 1]
+    if (this.any()) {
+        return expression ? this.where(expression).last() : this[this.count() - 1]
+    }
+
+    throw new TypeError("The source sequence is empty.")
 }
 
 Array.prototype.lastOrDefault = function (expression) {
     if (this.any()) {
-        return expression ? this.where(expression).last() : this[this.count() - 1]
+        if (!expression)
+            return this[this.count() - 1]
+        
+        let filteredItems = this.where(expression);
+
+        return filteredItems.any() ? this.where(expression).last() : undefined
     }
+
     throw new TypeError("The source sequence is empty.")
 }
 
@@ -137,6 +148,7 @@ Array.prototype.zip = function (second, resultSelector) {
     const result = []
     for (var i = 0; i < until; i++)
         result.push(resultSelector(this[i], second[i]))
+
     return result
 }
 
@@ -148,14 +160,15 @@ Array.prototype.intersect = function (source) {
     if (this.any() && source.any()) {
         return this.where(x => source.contains(x))
     }
+
     throw new TypeError("first or second is null.")
 }
 
 Array.prototype.groupJoin = function (inner, outerKeySelector, innerKeySelector, resultSelector) {
-
     if (this.any() || inner.any()) {
         return this.select((x, y) => resultSelector(x, inner.where(a => outerKeySelector(x) === innerKeySelector(a))));
     }
+
     throw new TypeError("outer or inner or outerKeySelector or innerKeySelector or resultSelector is null.")
 }
 
