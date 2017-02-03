@@ -1,5 +1,4 @@
 Array.prototype.first = function (expression) {
-
     if (this.any()) {
         return expression ? this.filter(expression)[0] : this[0]
     }
@@ -80,13 +79,23 @@ Array.prototype.groupBy = function (group, expression) {
 }
 
 Array.prototype.last = function (expression) {
-    return expression ? this.where(expression).last() : this[this.count() - 1]
+    if (this.any()) {
+        return expression ? this.where(expression).last() : this[this.count() - 1]
+    }
+
+    throw new TypeError("The source sequence is empty.")
 }
 
 Array.prototype.lastOrDefault = function (expression) {
     if (this.any()) {
-        return expression ? this.where(expression).last() : this[this.count() - 1]
+        if (!expression)
+            return this[this.count() - 1]
+        
+        let filteredItems = this.where(expression);
+
+        return filteredItems.any() ? this.where(expression).last() : undefined
     }
+
     throw new TypeError("The source sequence is empty.")
 }
 
