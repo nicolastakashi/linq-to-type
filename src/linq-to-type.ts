@@ -34,6 +34,7 @@ Array.prototype.elementAt = function (index) {
     if (this.any()) {
         return this[index]
     }
+    
     throw new TypeError("The source sequence is empty.")
 }
 
@@ -41,6 +42,7 @@ Array.prototype.elementAtOrDefault = function (index) {
     if (this.any()) {
         return this[index]
     }
+
     throw new TypeError("The source sequence is empty.")
 }
 
@@ -146,6 +148,7 @@ Array.prototype.zip = function (second, resultSelector) {
     const result = []
     for (var i = 0; i < until; i++)
         result.push(resultSelector(this[i], second[i]))
+
     return result
 }
 
@@ -157,14 +160,15 @@ Array.prototype.intersect = function (source) {
     if (this.any() && source.any()) {
         return this.where(x => source.contains(x))
     }
+
     throw new TypeError("first or second is null.")
 }
 
 Array.prototype.groupJoin = function (inner, outerKeySelector, innerKeySelector, resultSelector) {
-
     if (this.any() || inner.any()) {
         return this.select((x, y) => resultSelector(x, inner.where(a => outerKeySelector(x) === innerKeySelector(a))));
     }
+
     throw new TypeError("outer or inner or outerKeySelector or innerKeySelector or resultSelector is null.")
 }
 
