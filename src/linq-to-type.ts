@@ -11,7 +11,7 @@ Array.prototype.firstOrDefault = function (expression) {
         return this.first(expression)
     }
 
-    return undefined
+    throw new TypeError("The source sequence is empty.")
 }
 
 Array.prototype.where = function (expression) {

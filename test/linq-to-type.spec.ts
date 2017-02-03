@@ -83,14 +83,24 @@ describe('First test', () => {
 describe('FirstOrDefault test', () => {
     describe('Given an array', () => {
         describe('and you are asked the first or default item in the collection', () => {
-            it('should return the first item', () => {
-                let result = items.firstOrDefault(x => x == 1)
+            it('should return the first item that meets the expression', () => {
+                let result = items.firstOrDefault(x => x > 1)
+                expect(result).to.be.eq(2)
+            })
+
+            it('sould return default value if not meet the expression', () => {
+                let result = items.firstOrDefault(x => x > 10)
+                expect(result).to.be.eq(undefined)
+            })
+
+            it('should return the first item without an expression', () => {
+                let result = items.firstOrDefault()
                 expect(result).to.be.eq(1)
             })
-            it('should return undefined if collection is empty', () => {
+
+            it('should throws an exception if the collection is empty', () => {
                 let items = []
-                let result = items.firstOrDefault(x => x > 1)
-                expect(result).to.be.undefined
+                expect(() => items.firstOrDefault()).to.throws(TypeError, 'The source sequence is empty.')
             })
         })
     })
