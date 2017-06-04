@@ -116,7 +116,7 @@ describe('Where test', () => {
 
             it('should return an empty collection when the expression is not met', () => {
                 let result = items.where(x => x < 0)
-                expect(result.length).to.be.empty
+                expect(result).to.be.empty
             })
         })
     })

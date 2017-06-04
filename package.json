@@ -24,14 +24,14 @@
     "typescript": "^2.0.3"
   },
   "devDependencies": {
-    "@types/chai": "^3.4.34",
+    "@types/chai": "^4.0.0",
     "@types/mocha": "^2.2.32",
-    "@types/node": "^6.0.46",
-    "chai": "^3.5.0",
+    "@types/node": "^7.0.27",
+    "chai": "^4.0.1",
     "coveralls": "^2.11.14",
     "mocha": "^3.1.2",
-    "nyc": "^8.3.1",
+    "nyc": "^11.0.2",
     "rimraf": "^2.5.4",
-    "tslint": "^3.15.1"
+    "tslint": "^5.4.2"
   }
 }
